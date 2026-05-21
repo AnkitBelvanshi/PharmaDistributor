@@ -5,7 +5,7 @@ const About = () => (
       <div className="page-container">
         <h1 className="text-4xl font-bold mb-3">About Us</h1>
         <p className="text-brand-100 text-lg max-w-xl">
-          Learn about Lifecare Supportive Solutions and our commitment to quality pharmaceutical distribution.
+          Learn about CrossMeds Lifesciences and our commitment to quality pharmaceutical distribution.
         </p>
       </div>
     </section>
@@ -18,7 +18,7 @@ const About = () => (
             <span className="text-xs font-semibold uppercase tracking-widest text-brand-600 mb-3 block">Our Mission</span>
             <h2 className="section-title mb-4">Delivering Healthcare, Delivering Hope</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Lifecare Supportive Solutions was founded with a single mission: to ensure that quality
+              CrossMeds Lifesciences was founded with a single mission: to ensure that quality
               pharmaceutical products reach every corner of the country — reliably, affordably, and on time.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -27,7 +27,7 @@ const About = () => (
               promise we keep to the patients who depend on these medicines.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              {[['1,200+', 'Healthcare Partners'], ['50+', 'Cities Served'], ['500+', 'Medicines'], ['15+', 'Years Experience']].map(([v, l]) => (
+              {[ ['50+', 'Cities Served'], ['500+', 'Medicines'], ['15+', 'Years Experience']].map(([v, l]) => (
                 <div key={l} className="card p-4 text-center">
                   <p className="text-2xl font-bold text-brand-600">{v}</p>
                   <p className="text-xs text-gray-500 mt-1">{l}</p>

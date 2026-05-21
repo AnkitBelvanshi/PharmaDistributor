@@ -6,7 +6,7 @@ import {
   WhatsappShareButton, WhatsappIcon,
 } from 'react-share';
 import { getMedicineByIdApi } from '../../api/medicineApi';
-import { getImageUrl, formatDate } from '../../utils/formatters';
+import { getImageUrl, getServerImageUrl, formatDate } from '../../utils/formatters';
 import { PageLoader } from '../../components/common/Loader';
 
 const MedicineDetail = () => {
@@ -14,6 +14,7 @@ const MedicineDetail = () => {
   const [medicine, setMedicine] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [imgFailed, setImgFailed] = useState(false);
 
   useEffect(() => {
     getMedicineByIdApi(id)
@@ -34,9 +35,17 @@ const MedicineDetail = () => {
     );
   }
 
-  const imgUrl = getImageUrl(medicine.image);
+  const imgUrl = imgFailed ? null : getImageUrl(medicine.image, medicine.name);
+  const handleImgError = (e) => {
+    const serverUrl = getServerImageUrl(medicine.image);
+    if (serverUrl && e.target.src !== serverUrl) {
+      e.target.src = serverUrl;
+    } else {
+      setImgFailed(true);
+    }
+  };
   const shareUrl = window.location.href;
-  const shareTitle = `${medicine.name} — Lifecare Supportive Solutions`;
+  const shareTitle = `${medicine.name} — CrossMeds Lifesciences`;
 
   return (
     <div className="page-container py-10">
@@ -53,7 +62,7 @@ const MedicineDetail = () => {
         {/* Image */}
         <div className="card overflow-hidden aspect-video lg:aspect-square flex items-center justify-center bg-gray-50">
           {imgUrl ? (
-            <img src={imgUrl} alt={medicine.name} className="w-full h-full object-cover" />
+            <img src={imgUrl} alt={medicine.name} className="w-full h-full object-cover" onError={handleImgError} />
           ) : (
             <div className="flex flex-col items-center gap-3 text-gray-400">
               <span className="text-7xl">💊</span>

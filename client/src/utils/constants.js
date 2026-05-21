@@ -1,4 +1,4 @@
-export const APP_NAME = 'Lifecare Supportive Solutions';
+export const APP_NAME = 'CrossMeds Lifesciences';
 export const APP_TAGLINE = 'Your Trusted Pharmaceutical Distribution Partner';
 
 export const NAV_LINKS = [
@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { label: 'Medicines', path: '/medicines' },
   { label: 'About Us', path: '/about-us' },
   { label: 'Services', path: '/services' },
-  { label: 'Requirements', path: '/requirements' },
+  // { label: 'Requirements', path: '/requirements' },
   { label: 'Contact Us', path: '/contact-us' },
 ];
 

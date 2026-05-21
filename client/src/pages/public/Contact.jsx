@@ -36,11 +36,12 @@ const Contact = () => {
                 </p>
               </div>
               {[
-                { icon: '📧', label: 'Email', value: 'info@lifecaresolutions.com' },
-                { icon: '📞', label: 'Phone', value: '+91 98765 43210' },
-                { icon: '📱', label: 'WhatsApp', value: '+91 98765 43210' },
-                { icon: '📍', label: 'Address', value: '123 Pharma Hub, Andheri East, Mumbai 400069' },
-                { icon: '🕐', label: 'Hours', value: 'Mon–Sat, 9 AM – 6 PM' },
+                { icon: '📧', label: 'Email', value: 'sale@crossmeds.com' },
+                { icon: '📧', label: 'Purchase', value: 'purchase@crossmeds.com' },
+                { icon: '📞', label: 'Phone', value: '+91 99302 12200' },
+                { icon: '📱', label: 'WhatsApp', value: '+91 99302 122000' },
+                { icon: '📍', label: 'Address', value: '493, Raigarh, Tal. Roha, Pin Code. 402106' },
+                { icon: '🕐', label: 'Hours', value: 'Mon–Sat, 24/7' },
               ].map((c) => (
                 <div key={c.label} className="flex items-start gap-3">
                   <span className="text-xl mt-0.5">{c.icon}</span>

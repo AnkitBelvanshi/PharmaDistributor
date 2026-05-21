@@ -29,7 +29,7 @@ const Login = () => {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <img src="/images/Lifecare.jpg" alt="Lifecare logo" className="h-16 w-16 object-contain rounded-xl mx-auto" />
+          <img src="/images/CrossMeds01.png" alt="CrossMeds Lifesciences logo" className="h-16 w-16 object-contain rounded-xl mx-auto" />
           <h1 className="mt-3 text-2xl font-bold text-gray-900">{APP_NAME}</h1>
           <p className="text-gray-500 text-sm mt-1">Sign in to the admin panel</p>
         </div>

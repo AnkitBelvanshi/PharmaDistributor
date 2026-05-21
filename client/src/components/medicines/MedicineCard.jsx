@@ -1,8 +1,19 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getImageUrl, truncate } from '../../utils/formatters';
+import { getImageUrl, getServerImageUrl, truncate } from '../../utils/formatters';
 
 const MedicineCard = ({ medicine }) => {
-  const imgUrl = getImageUrl(medicine.image);
+  const [failed, setFailed] = useState(false);
+  const imgUrl = failed ? null : getImageUrl(medicine.image, medicine.name);
+
+  const handleError = (e) => {
+    const serverUrl = getServerImageUrl(medicine.image);
+    if (serverUrl && e.target.src !== serverUrl) {
+      e.target.src = serverUrl;
+    } else {
+      setFailed(true);
+    }
+  };
 
   return (
     <Link
@@ -16,6 +27,7 @@ const MedicineCard = ({ medicine }) => {
             alt={medicine.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
+            onError={handleError}
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-brand-50 gap-2">

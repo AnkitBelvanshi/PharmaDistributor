@@ -44,11 +44,11 @@ const Home = () => {
       {/* Stats */}
       <section className="bg-white border-b border-gray-100">
         <div className="page-container py-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
             {[
               { label: 'Medicines Available', value: '500+' },
               { label: 'Cities Served', value: '50+' },
-              { label: 'Healthcare Partners', value: '1,200+' },
+              // { label: 'Healthcare Partners', value: '1,200+' },
               { label: 'Years of Experience', value: '15+' },
             ].map((s) => (
               <div key={s.label}>

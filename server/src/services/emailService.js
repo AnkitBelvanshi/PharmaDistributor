@@ -22,7 +22,7 @@ const sendContactNotification = async ({ firstName, lastName, email, phone, loca
   if (!env.SMTP_USER || !env.ADMIN_EMAIL) return;
 
   const html = `
-    <h2>New Customer Query — Lifecare Supportive Solutions</h2>
+    <h2>New Customer Query — CrossMeds Lifesciences</h2>
     <table style="border-collapse:collapse;width:100%">
       <tr><td style="padding:8px;border:1px solid #ddd"><strong>Name</strong></td><td style="padding:8px;border:1px solid #ddd">${firstName} ${lastName}</td></tr>
       <tr><td style="padding:8px;border:1px solid #ddd"><strong>Email</strong></td><td style="padding:8px;border:1px solid #ddd">${email}</td></tr>
@@ -33,7 +33,7 @@ const sendContactNotification = async ({ firstName, lastName, email, phone, loca
   `;
 
   await getTransporter().sendMail({
-    from: `"Pharma Distributor" <${env.SMTP_USER}>`,
+    from: `"CrossMeds Lifesciences" <${env.SMTP_USER}>`,
     to: env.ADMIN_EMAIL,
     subject: `New Contact Query from ${firstName} ${lastName}`,
     html,

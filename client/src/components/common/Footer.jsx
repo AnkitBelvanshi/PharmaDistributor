@@ -8,7 +8,7 @@ const Footer = () => (
         {/* Brand */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 mb-3">
-            <img src="/images/Lifecare.jpg" alt="Lifecare logo" className="h-10 w-10 object-contain rounded bg-white p-0.5" />
+            <img src="/images/CrossMeds01.png" alt="CrossMeds Lifesciences logo" className="h-10 w-10 object-contain rounded" />
             <span className="font-bold text-white">{APP_NAME}</span>
           </div>
           <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
@@ -42,9 +42,10 @@ const Footer = () => (
             Contact
           </h4>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li>📧 info@lifecaresolutions.com</li>
-            <li>📞 +91 98765 43210</li>
-            <li>📍 Mumbai, Maharashtra, India</li>
+            <li>📧 sale@crossmeds.com</li>
+            <li>📧 purchase@crossmeds.com</li>
+            <li>📞 +91 9930212200</li>
+            <li>📍 493, Raigarh, Tal. Roha, Pin Code. 402106</li>
           </ul>
         </div>
       </div>

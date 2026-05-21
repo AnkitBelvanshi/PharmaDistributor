@@ -5,7 +5,32 @@ import { getMedicinesApi, deleteMedicineApi, searchMedicinesApi } from '../../ap
 import SearchBar from '../../components/medicines/SearchBar';
 import Pagination from '../../components/common/Pagination';
 import { TableRowSkeleton } from '../../components/common/Loader';
-import { getImageUrl, formatDate } from '../../utils/formatters';
+import { getImageUrl, getServerImageUrl, formatDate } from '../../utils/formatters';
+
+const MedicineThumb = ({ name, filename }) => {
+  const [failed, setFailed] = useState(false);
+  const src = failed ? null : getImageUrl(filename, name);
+
+  const handleError = (e) => {
+    const serverUrl = getServerImageUrl(filename);
+    if (serverUrl && e.target.src !== serverUrl) {
+      e.target.src = serverUrl;
+    } else {
+      setFailed(true);
+    }
+  };
+
+  return src ? (
+    <img
+      src={src}
+      alt={name}
+      className="w-12 h-12 object-cover rounded-lg border border-gray-200"
+      onError={handleError}
+    />
+  ) : (
+    <div className="w-12 h-12 rounded-lg bg-brand-50 flex items-center justify-center text-xl">💊</div>
+  );
+};
 
 const ManageMedicines = () => {
   const [medicines, setMedicines] = useState([]);
@@ -83,17 +108,7 @@ const ManageMedicines = () => {
                 : medicines.map((m) => (
                     <tr key={m.id} className="hover:bg-gray-50">
                       <td className="px-4 py-3">
-                        {m.image ? (
-                          <img
-                            src={getImageUrl(m.image)}
-                            alt={m.name}
-                            className="w-12 h-12 object-cover rounded-lg border border-gray-200"
-                          />
-                        ) : (
-                          <div className="w-12 h-12 rounded-lg bg-brand-50 flex items-center justify-center text-xl">
-                            💊
-                          </div>
-                        )}
+                        <MedicineThumb name={m.name} filename={m.image} />
                       </td>
                       <td className="px-4 py-3 font-medium text-gray-900">{m.name}</td>
                       <td className="px-4 py-3 text-gray-500">{formatDate(m.createdAt)}</td>

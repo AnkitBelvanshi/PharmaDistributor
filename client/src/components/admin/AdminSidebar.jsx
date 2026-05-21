@@ -31,7 +31,7 @@ const AdminSidebar = ({ isOpen, onClose }) => (
     >
       {/* Logo */}
       <div className="flex items-center gap-2 px-5 py-5 border-b border-gray-700">
-        <img src="/images/Lifecare.jpg" alt="Lifecare logo" className="h-8 w-8 object-contain rounded bg-white p-0.5 flex-shrink-0" />
+        <img src="/images/CrossMeds01.png" alt="CrossMeds Lifesciences logo" className="h-8 w-8 object-contain rounded flex-shrink-0" />
         <span className="font-bold text-sm leading-tight">{APP_NAME}</span>
         <button
           className="ml-auto lg:hidden text-gray-400 hover:text-white"
@@ -67,7 +67,7 @@ const AdminSidebar = ({ isOpen, onClose }) => (
       </nav>
 
       <div className="px-5 py-4 border-t border-gray-700 text-xs text-gray-500">
-        Lifecare Admin v1.0
+        CrossMeds Admin v1.0
       </div>
     </aside>
   </>

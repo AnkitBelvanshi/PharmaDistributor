@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { getImageUrl } from '../../utils/formatters';
+import { getServerImageUrl } from '../../utils/formatters';
 import Loader from '../common/Loader';
 
 const schema = z.object({
@@ -22,7 +22,7 @@ const MedicineForm = ({ defaultValues, onSubmit, submitLabel = 'Save Medicine' }
 
   const fileRef = useRef(null);
   const [preview, setPreview] = useState(
-    defaultValues?.image ? getImageUrl(defaultValues.image) : null
+    defaultValues?.image ? getServerImageUrl(defaultValues.image) : null
   );
   const [imageFile, setImageFile] = useState(null);
 

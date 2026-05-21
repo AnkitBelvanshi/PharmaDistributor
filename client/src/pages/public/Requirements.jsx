@@ -22,7 +22,7 @@ const Requirements = () => (
       <div className="page-container">
         <h1 className="text-4xl font-bold mb-3">Business Requirements</h1>
         <p className="text-brand-100 text-lg max-w-xl">
-          Everything you need to know to become a Lifecare distribution partner.
+          Everything you need to know to become a CrossMeds Lifesciences distribution partner.
         </p>
       </div>
     </section>
