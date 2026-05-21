@@ -22,9 +22,18 @@ app.use(
 );
 
 // CORS
+const allowedOrigins = [
+  env.CLIENT_URL,
+  'https://crossmeds.com',
+  'https://www.crossmeds.com',
+  'http://localhost:5173',
+];
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: (origin, cb) => {
+      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      cb(new Error('Not allowed by CORS'));
+    },
     credentials: true,
   })
 );

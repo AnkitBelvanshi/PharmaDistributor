@@ -8,6 +8,8 @@ node_modules/
 .env.*.local
 **/.env
 **/.env.local
+# Allow production env (no secrets, just public API URL)
+!client/.env.production
 
 # Build output
 dist/
