@@ -9,6 +9,7 @@ services:
   - type: web
     name: crossmeds-api
     plan: free
+    region: singapore
     runtime: node
     rootDir: server
     buildCommand: npm install && npx prisma generate
@@ -20,7 +21,7 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: pharma-db
-          property: connectionString
+          property: ConnectionString
       - key: CLIENT_URL
         value: https://www.crossmeds.com
       - key: JWT_SECRET
