@@ -31,9 +31,8 @@ services:
         value: 15m
       - key: JWT_REFRESH_EXPIRES_IN
         value: 7d
-      # Fill these in Render dashboard after deploy:
       - key: RECAPTCHA_SECRET_KEY
-        value: ""
+        sync: false
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
@@ -41,11 +40,11 @@ services:
       - key: SMTP_SECURE
         value: "false"
       - key: SMTP_USER
-        value: ""
+        sync: false
       - key: SMTP_PASS
-        value: ""
+        sync: false
       - key: ADMIN_EMAIL
-        value: ""
+        sync: false
   - type: static
     name: crossmeds-web
     rootDir: client
