@@ -11,7 +11,6 @@ services:
     name: crossmeds-api
     plan: free
     runtime: node
-    region: singapore
     rootDir: server
     buildCommand: npm install && npx prisma generate
     startCommand: npx prisma migrate deploy && node src/app.js
