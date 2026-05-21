@@ -10,7 +10,6 @@ services:
     name: crossmeds-api
     plan: free
     runtime: node
-    region: singapore
     rootDir: server
     buildCommand: npm install && npx prisma generate
     startCommand: npx prisma migrate deploy && node src/app.js
@@ -47,8 +46,7 @@ services:
         value: ""
       - key: ADMIN_EMAIL
         value: ""
-
- - type: static
+  - type: static
     name: crossmeds-web
     rootDir: client
     buildCommand: npm install && npm run build
