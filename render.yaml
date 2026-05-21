@@ -6,7 +6,6 @@ databases:
     region: singapore
 
 services:
-  # ── Backend API ──────────────────────────────────────────────────────────────
   - type: web
     name: crossmeds-api
     plan: free
@@ -49,7 +48,6 @@ services:
       - key: ADMIN_EMAIL
         value: ""
 
-  # ── Frontend (Static Site) ───────────────────────────────────────────────────
  - type: static
     name: crossmeds-web
     rootDir: client
