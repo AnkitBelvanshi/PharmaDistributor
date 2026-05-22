@@ -36,12 +36,6 @@ const Login = () => {
 
         <div className="card p-8">
           <LoginForm onSubmit={handleSubmit} />
-          <p className="text-center text-sm text-gray-500 mt-6">
-            Need an account?{' '}
-            <Link to="/register" className="text-brand-600 hover:underline font-medium">
-              Register here
-            </Link>
-          </p>
         </div>
 
         <p className="text-center mt-6">

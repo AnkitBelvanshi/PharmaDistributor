@@ -15,7 +15,6 @@ import Services from './pages/public/Services';
 import Requirements from './pages/public/Requirements';
 import Contact from './pages/public/Contact';
 import Login from './pages/public/Login';
-import Register from './pages/public/Register';
 import NotFound from './pages/NotFound';
 
 // Admin pages
@@ -44,7 +43,6 @@ const App = () => (
 
           {/* Auth (no layout wrapper) */}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
 
           {/* Admin (protected) */}
           <Route
