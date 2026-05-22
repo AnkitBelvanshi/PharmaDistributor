@@ -1,4 +1,10 @@
 require('dotenv').config();
+
+// Render's external PostgreSQL requires SSL — append before any Prisma client is created
+if (process.env.NODE_ENV === 'production' && process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('sslmode')) {
+  process.env.DATABASE_URL += (process.env.DATABASE_URL.includes('?') ? '&' : '?') + 'sslmode=require';
+}
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -14,6 +20,9 @@ const queryRoutes = require('./routes/queryRoutes');
 
 const app = express();
 
+// Trust Render's proxy so express-rate-limit can read X-Forwarded-For correctly
+app.set('trust proxy', 1);
+
 // Security
 app.use(
   helmet({
@@ -26,6 +35,7 @@ const allowedOrigins = [
   env.CLIENT_URL,
   'https://crossmeds.com',
   'https://www.crossmeds.com',
+  'https://crossmeds-web.onrender.com',
   'http://localhost:5173',
 ];
 app.use(
@@ -88,9 +98,7 @@ app.use((err, _req, res, _next) => {
   const status = err.status || err.statusCode || 500;
   const message = status < 500 ? err.message : 'Internal server error';
 
-  if (env.NODE_ENV !== 'production') {
-    console.error(err);
-  }
+  console.error(err);
 
   // Zod validation errors bubble up with issues array
   if (err.name === 'ZodError') {
